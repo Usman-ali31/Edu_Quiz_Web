@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz — Code Runner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="index.html">Edu<span>Quiz</span></a>
+    <div class="nav-tabs">
+      <a class="nav-tab" href="index.html">Home</a>
+      <a class="nav-tab" href="teacher.html">Teacher Panel</a>
+      <a class="nav-tab" href="student.html">Take Quiz</a>
+      <a class="nav-tab active" href="code.html">Code Runner</a>
+      <a class="nav-tab" href="leaderboard.html">Leaderboard</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper fade-in">
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <div class="section-title">Code <span>Runner</span></div>
+      <span class="tag">JavaScript</span>
+    </div>
+
+    <!-- SNIPPET SHORTCUTS -->
+    <div class="snippets-bar">
+      <span style="font-size:0.75rem;color:var(--text-muted);margin-right:0.3rem;align-self:center;">
+        Quick Start:
+      </span>
+      <button class="snippet-btn" onclick="loadSnippet('hello')">Hello World</button>
+      <button class="snippet-btn" onclick="loadSnippet('loop')">For Loop</button>
+      <button class="snippet-btn" onclick="loadSnippet('array')">Array Methods</button>
+      <button class="snippet-btn" onclick="loadSnippet('function')">Functions</button>
+      <button class="snippet-btn" onclick="loadSnippet('object')">Objects</button>
+      <button class="snippet-btn" onclick="loadSnippet('class')">Classes</button>
+    </div>
+
+    <!-- EDITOR + OUTPUT LAYOUT -->
+    <div class="code-layout">
+
+      <!-- CODE EDITOR -->
+      <div>
+        <div class="editor-toolbar">
+          <div class="editor-dots">
+            <div class="editor-dot dot-r"></div>
+            <div class="editor-dot dot-y"></div>
+            <div class="editor-dot dot-g"></div>
+          </div>
+          <span style="font-family:'Space Mono',monospace;font-size:0.75rem;color:var(--text-muted);">
+            script.js
+          </span>
+          <select class="lang-select" id="langSelect">
+            <option value="js">JavaScript</option>
+          </select>
+        </div>
+        <textarea id="codeInput" spellcheck="false"
+          placeholder="// Write your JavaScript code here...
+// Use console.log() to print output
+
+console.log('Hello, World!');"></textarea>
+        <div class="code-actions">
+          <button class="btn-run" onclick="runCode()">▶ Run Code</button>
+          <button class="btn btn-secondary" onclick="clearCode()">Clear</button>
+          <button class="btn btn-secondary" onclick="clearOutput()">Clear Output</button>
+        </div>
+      </div>
+
+      <!-- OUTPUT PANEL -->
+      <div class="output-panel">
+        <div class="output-header">
+          <span>Output</span>
+          <span class="output-status" id="outputStatus">Ready</span>
+        </div>
+        <div id="codeOutput">
+          <span class="output-placeholder">
+            // Output will appear here after you click "Run Code"
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

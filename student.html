@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz — Take Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="index.html">Edu<span>Quiz</span></a>
+    <div class="nav-tabs">
+      <a class="nav-tab" href="index.html">Home</a>
+      <a class="nav-tab" href="teacher.html">Teacher Panel</a>
+      <a class="nav-tab active" href="student.html">Take Quiz</a>
+      <a class="nav-tab" href="code.html">Code Runner</a>
+      <a class="nav-tab" href="leaderboard.html">Leaderboard</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper fade-in">
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <div class="section-title">Quiz <span>Module</span></div>
+      <span class="tag" id="questionCountTag">Loading...</span>
+    </div>
+
+    <!-- START SCREEN -->
+    <div class="quiz-start-screen" id="quizStartScreen">
+      <div style="font-size:3rem;margin-bottom:1rem;">🎯</div>
+      <h2>Ready to Test Your Knowledge?</h2>
+      <p>Enter your name below and click Start. Your score will be saved to the leaderboard automatically.</p>
+      <div class="student-setup">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" class="form-control" id="studentName"
+            placeholder="Enter your name...">
+        </div>
+        <button class="btn btn-primary full-width" onclick="startQuiz()">
+          ▶ Start Quiz
+        </button>
+        <p class="text-muted mt-1" id="noQuestionsMsg"
+          style="display:none;color:#f59090;">
+          ⚠ No questions yet. Ask your teacher to add questions first!
+        </p>
+      </div>
+    </div>
+
+    <!-- QUIZ AREA (hidden until started) -->
+    <div class="quiz-container" id="quizContainer">
+
+      <!-- Progress Bar -->
+      <div class="quiz-progress-bar">
+        <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
+      </div>
+
+      <!-- Question renders here -->
+      <div id="questionsArea"></div>
+
+      <!-- Navigation Footer -->
+      <div class="quiz-footer">
+        <span class="text-muted" id="quizCounterText">Question 1 of 1</span>
+        <div style="display:flex;gap:0.5rem;">
+          <button class="btn btn-secondary" onclick="prevQuestion()"
+            id="prevBtn" style="display:none;">← Prev</button>
+          <button class="btn btn-primary" onclick="nextQuestion()"
+            id="nextBtn">Next →</button>
+          <button class="btn btn-primary" onclick="submitQuiz()"
+            id="submitBtn" style="display:none;">Submit Quiz ✓</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS CARD (hidden until submitted) -->
+    <div class="results-card" id="resultsCard">
+      <div style="font-size:2rem;margin-bottom:0.5rem;">🎉</div>
+      <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:0.3rem;">Quiz Completed!</h2>
+      <p class="text-muted" id="resultStudentName"></p>
+
+      <div class="score-circle pulse">
+        <span class="score-number" id="scorePercent">0%</span>
+        <span class="score-label">SCORE</span>
+      </div>
+
+      <p id="scoreDetail"
+        style="font-size:0.95rem;margin-bottom:1.5rem;color:var(--text-muted);"></p>
+      <p id="scoreFeedback"
+        style="font-weight:700;margin-bottom:1.5rem;font-size:1rem;"></p>
+
+      <div style="display:flex;gap:0.7rem;justify-content:center;flex-wrap:wrap;">
+        <button class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+        <a class="btn btn-outline" href="leaderboard.html">View Leaderboard</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // Update question count tag on this page
+    document.addEventListener('DOMContentLoaded', () => {
+      const tag = document.getElementById('questionCountTag');
+      if (tag) {
+        tag.textContent = questions.length + ' question' + (questions.length !== 1 ? 's' : '');
+      }
+    });
+  </script>
+</body>
+</html>

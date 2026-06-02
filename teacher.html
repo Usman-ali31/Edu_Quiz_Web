@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz — Teacher Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="index.html">Edu<span>Quiz</span></a>
+    <div class="nav-tabs">
+      <a class="nav-tab" href="index.html">Home</a>
+      <a class="nav-tab active" href="teacher.html">Teacher Panel</a>
+      <a class="nav-tab" href="student.html">Take Quiz</a>
+      <a class="nav-tab" href="code.html">Code Runner</a>
+      <a class="nav-tab" href="leaderboard.html">Leaderboard</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper fade-in">
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <div class="section-title">Teacher <span>Panel</span></div>
+      <span class="tag" id="questionCountTag">0 questions</span>
+    </div>
+
+    <!-- TWO COLUMN LAYOUT -->
+    <div class="teacher-layout">
+
+      <!-- LEFT: ADD QUESTION FORM -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-dot"></div>
+          Add New Question
+        </div>
+        <div class="panel-body">
+
+          <div class="form-group">
+            <label>Question</label>
+            <textarea class="form-control" id="questionInput" rows="3"
+              placeholder="Type your question here..."></textarea>
+          </div>
+
+          <div class="options-row">
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Option A</label>
+              <input type="text" class="form-control" id="optA" placeholder="Option A">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Option B</label>
+              <input type="text" class="form-control" id="optB" placeholder="Option B">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Option C</label>
+              <input type="text" class="form-control" id="optC" placeholder="Option C">
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label>Option D</label>
+              <input type="text" class="form-control" id="optD" placeholder="Option D">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Correct Answer</label>
+            <select class="form-control" id="correctAns">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Points</label>
+            <input type="number" class="form-control" id="pointsInput"
+              value="10" min="1" max="100">
+          </div>
+
+          <button class="btn btn-primary full-width" onclick="addQuestion()">
+            + Add Question
+          </button>
+
+          <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);">
+            <a href="student.html" class="btn btn-outline full-width">
+              ▶ Go to Quiz Page
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: QUESTIONS LIST -->
+      <div class="panel">
+        <div class="panel-header">
+          <div class="panel-dot" style="background:var(--accent2);box-shadow:0 0 8px var(--accent2);"></div>
+          All Questions
+        </div>
+        <div class="panel-body">
+          <div id="questionsList"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

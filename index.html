@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz — Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="index.html">Edu<span>Quiz</span></a>
+    <div class="nav-tabs">
+      <a class="nav-tab active" href="index.html">Home</a>
+      <a class="nav-tab" href="teacher.html">Teacher Panel</a>
+      <a class="nav-tab" href="student.html">Take Quiz</a>
+      <a class="nav-tab" href="code.html">Code Runner</a>
+      <a class="nav-tab" href="leaderboard.html">Leaderboard</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper fade-in">
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+      <div class="hero-badge">✦ Interactive Learning Platform</div>
+      <h1>
+        Learn Smarter,<br>
+        <span class="line2">Code Better.</span>
+      </h1>
+      <p>
+        An all-in-one educational platform with teacher-managed quizzes,
+        auto-grading, live leaderboards, and an in-browser code runner.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="student.html">▶ Start Quiz</a>
+        <a class="btn btn-outline" href="teacher.html">🎓 Teacher Panel</a>
+        <a class="btn btn-outline" href="code.html">⌨ Code Runner</a>
+      </div>
+    </div>
+
+    <!-- FEATURE CARDS -->
+    <div class="feature-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h3>Quiz Management</h3>
+        <p>Teachers can add, edit, and organize quiz questions with multiple-choice options and custom point values.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚡</span>
+        <h3>Auto-Grading</h3>
+        <p>Instant score calculation upon quiz submission with detailed feedback and performance rating.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🏆</span>
+        <h3>Live Leaderboard</h3>
+        <p>Real-time rankings stored in LocalStorage to encourage healthy competition among students.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💻</span>
+        <h3>Code Runner</h3>
+        <p>Write and execute JavaScript code directly in the browser — no setup or installation required.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📊</span>
+        <h3>Progress Tracking</h3>
+        <p>All scores and quiz history are saved using LocalStorage for persistent progress tracking.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h3>Responsive Design</h3>
+        <p>Fully responsive interface that works beautifully on desktop, tablet, and mobile devices.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

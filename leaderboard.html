@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduQuiz — Leaderboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a class="logo" href="index.html">Edu<span>Quiz</span></a>
+    <div class="nav-tabs">
+      <a class="nav-tab" href="index.html">Home</a>
+      <a class="nav-tab" href="teacher.html">Teacher Panel</a>
+      <a class="nav-tab" href="student.html">Take Quiz</a>
+      <a class="nav-tab" href="code.html">Code Runner</a>
+      <a class="nav-tab active" href="leaderboard.html">Leaderboard</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-wrapper fade-in">
+
+    <!-- SECTION HEADER -->
+    <div class="section-header">
+      <div class="section-title">🏆 Leader<span>board</span></div>
+      <button class="btn btn-danger" onclick="clearLeaderboard()"
+        style="font-size:0.8rem;padding:0.4rem 0.9rem;">
+        Clear All
+      </button>
+    </div>
+
+    <!-- LEADERBOARD TABLE -->
+    <div class="panel">
+      <div class="panel-header">
+        <div class="panel-dot"
+          style="background:var(--accent3);box-shadow:0 0 8px var(--accent3);"></div>
+        Top Scores — All Time
+      </div>
+      <div class="panel-body" style="padding:0;">
+        <div id="leaderboardBody"></div>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div style="display:flex;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+      <a class="btn btn-primary" href="student.html">▶ Take Another Quiz</a>
+      <a class="btn btn-outline" href="teacher.html">+ Add Questions</a>
+    </div>
+
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
